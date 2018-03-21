@@ -12,6 +12,8 @@ Route::resource('categories.products', 'Category\CategoryProductController', ['o
 Route::resource('categories.sellers', 'Category\CategorySellerController', ['only' => ['index']]);
 Route::resource('categories.transactions', 'Category\CategoryTransactionController', ['only' => ['index']]);
 
+Route::post('oauth/token', '\Laravel\Passport\Http\Controllers\AccessTokenController@issueToken');
+
 Route::resource('products', 'Product\ProductController', ['only' => ['index', 'show']]);
 Route::resource('products.buyers', 'Product\ProductBuyerController', ['only' => ['index']]);
 Route::resource('products.buyers.transactions', 'Product\ProductBuyerTransactionController', ['only' => ['store']]);
