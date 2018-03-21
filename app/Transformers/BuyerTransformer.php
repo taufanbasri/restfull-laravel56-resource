@@ -28,6 +28,27 @@ class BuyerTransformer extends TransformerAbstract
                     'rel' => 'self',
                     'href' => route('buyers.show', $buyer->id)
                 ],
+                [
+                    'rel' => 'buyers.categories',
+                    'href' => route('buyers.categories.index', $buyer->id)
+                ],
+                [
+                    'rel' => 'buyers.product',
+                    'href' => route('buyers.products.index', $buyer->id)
+                ],
+                [
+                    'rel' => 'buyers.seller',
+                    'href' => route('buyers.sellers.index', $buyer->id)
+                ],
+                [
+                    'rel' => 'buyers.transaction',
+                    'href' => route('buyers.transactions.index', $buyer->id)
+                ],
+
+                [
+                    'rel' => 'user',
+                    'href' => route('users.show', $buyer->id)
+                ],
             ]
         ];
     }
