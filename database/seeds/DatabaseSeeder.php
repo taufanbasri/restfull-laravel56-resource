@@ -3,6 +3,7 @@
 use App\Models\User;
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\Transaction;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -20,10 +21,12 @@ class DatabaseSeeder extends Seeder
         User::truncate();
         Category::truncate();
         Product::truncate();
+        Transaction::truncate();
 
         User::flushEventListeners();
         Category::flushEventListeners();
         Product::flushEventListeners();
+        Transaction::flushEventListeners();
 
         factory(User::class, 1000)->create();
         factory(Category::class, 30)->create();
@@ -32,5 +35,6 @@ class DatabaseSeeder extends Seeder
 
             $product->categories()->attach($categories);
         });
+        factory(Transaction::class, 1000)->create();
     }
 }
