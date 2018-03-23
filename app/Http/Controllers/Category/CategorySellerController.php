@@ -12,7 +12,7 @@ class CategorySellerController extends ApiController
     {
         parent::__construct();
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -20,6 +20,8 @@ class CategorySellerController extends ApiController
      */
     public function index(Category $category)
     {
+        $this->allowedAdminAction();
+        
         $sellers = $category->products()->with('seller')->get()->pluck('seller')->unique()->values();
 
         return $this->showAll($sellers);
