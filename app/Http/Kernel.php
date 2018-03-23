@@ -39,9 +39,10 @@ class Kernel extends HttpKernel
         ],
 
         'api' => [
-            'signature:X-Application-Name',
-            'throttle:60,1',
+            'cors',
             'bindings',
+            'throttle:60,1',
+            'signature:X-Application-Name',
         ],
     ];
 
@@ -62,6 +63,7 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
 
+        'cors' => \Barryvdh\Cors\HandleCors::class,
         'signature' => \App\Http\Middleware\SignatureMiddleware::class,
         'transform.input' => \App\Http\Middleware\TransformInput::class,
         'scopes' => \Laravel\Passport\Http\Middleware\CheckScopes::class,
