@@ -12,6 +12,7 @@ class SellerCategoryController extends ApiController
     {
         parent::__construct();
 
+        $this->middleware('can:view,seller')->only('index');
         $this->middleware('scope:read-general')->only('index');
     }
 
